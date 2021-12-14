@@ -1,0 +1,1 @@
+TODO: Project architecture and organization
