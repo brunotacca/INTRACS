@@ -181,12 +181,13 @@ void main() {
         () async {
       // Arrange / Given
       final successCase = Success<Exception, RawData>(rawData);
-      // stubs
-      when(() => output.call(any())).thenAnswer((_) async => true);
+      // Stub for repository call, returning something
       when(() => mockedComputingMethodsRepository.isComputingRawData())
           .thenAnswer((_) async => true);
       when(() => mockedComputingMethodsRepository.registerNewRawData(rawData))
           .thenReturn(Void);
+      // Stub for output call, return true (meaning executed with success);
+      when(() => output.call(any())).thenAnswer((_) async => true);
 
       // Act / When
       await useCase.call(successCase);
