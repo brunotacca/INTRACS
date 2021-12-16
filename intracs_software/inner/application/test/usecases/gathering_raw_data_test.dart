@@ -1,3 +1,5 @@
+import 'dart:ffi';
+
 import 'package:intracs_application/application.dart';
 import 'package:intracs_entities/entities.dart';
 import 'package:test/test.dart';
@@ -11,8 +13,12 @@ class MockGatheringRawDataInfoOutput extends Mock
 class MockGatheringRawDataRepository extends Mock
     implements GatheringRawDataDataAccess {}
 
+class MockComputingMethodsRepository extends Mock
+    implements ComputingMethodsDataAccess {}
+
 void main() {
   late MockGatheringRawDataRepository mockedRepository;
+  late MockComputingMethodsRepository mockedComputingMethodsRepository;
 
   // Repository results
   final genericException = Exception('ERROR');
@@ -32,6 +38,8 @@ void main() {
 
   setUpAll(() {
     mockedRepository = MockGatheringRawDataRepository();
+    mockedComputingMethodsRepository = MockComputingMethodsRepository();
+
     // fallback values for output call
     registerFallbackValue(
       Success<Exception, RawDataOutputDTO>(rawDataOutputDTO),
@@ -139,13 +147,16 @@ void main() {
     late MockReceivedRawDataOutput output;
     setUp(() {
       output = MockReceivedRawDataOutput();
-      useCase = ReceivedRawDataUseCase(output);
+      useCase =
+          ReceivedRawDataUseCase(mockedComputingMethodsRepository, output);
     });
 
     test(
         'Should transfer the call parameter accordingly to the output, in case of success/failure.',
         () async {
       // Arrange / Given
+      when(() => mockedComputingMethodsRepository.isComputingRawData())
+          .thenAnswer((_) async => true);
       final successCase = Success<Exception, RawData>(rawData);
       final failureCase = Failure<Exception, RawData>(genericException);
       // stub the output call, return true (meaning executed with success);
@@ -163,6 +174,30 @@ void main() {
       // failure was called last
       expect(capturedCallArgs.last.runtimeType,
           Failure<Exception, RawDataOutputDTO>(genericException).runtimeType);
+    });
+
+    test(
+        'Should call the output and then register the new rawdata received into the repository when computing.',
+        () async {
+      // Arrange / Given
+      final successCase = Success<Exception, RawData>(rawData);
+      // stubs
+      when(() => output.call(any())).thenAnswer((_) async => true);
+      when(() => mockedComputingMethodsRepository.isComputingRawData())
+          .thenAnswer((_) async => true);
+      when(() => mockedComputingMethodsRepository.registerNewRawData(rawData))
+          .thenReturn(Void);
+
+      // Act / When
+      await useCase.call(successCase);
+
+      // Assert / Expect
+      // Verify call order
+      verifyInOrder([
+        () => output.call(any()),
+        () => mockedComputingMethodsRepository.isComputingRawData(),
+        () => mockedComputingMethodsRepository.registerNewRawData(rawData),
+      ]);
     });
   });
 

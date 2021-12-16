@@ -12,6 +12,7 @@ abstract class ComputingMethodsDataAccess {
   Future<Result<Exception, bool>> startComputingRawData();
   Future<Result<Exception, bool>> stopComputingRawData();
   Future<bool> isComputingRawData();
+  void registerNewRawData(RawData rawData);
 }
 
 abstract class ReceivedComputedData
