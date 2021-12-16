@@ -4,7 +4,7 @@ import 'package:test/test.dart';
 import 'package:mocktail/mocktail.dart';
 
 class MockComputingMethodsRepository extends Mock
-    implements ComputingMethodsDataAccess {}
+    implements ComputingDataAccess {}
 
 class MockGetComputingMethodsOutput extends Mock
     implements GetComputingMethodsOutput {}

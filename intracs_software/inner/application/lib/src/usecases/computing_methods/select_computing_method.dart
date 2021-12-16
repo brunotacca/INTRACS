@@ -2,16 +2,16 @@ import 'package:intracs_application/application.dart';
 import 'package:intracs_entities/entities.dart';
 
 class SelectComputingMethodUseCase implements SelectComputingMethod {
-  final ComputingMethodsDataAccess computingMethodsDataAccess;
+  final ComputingDataAccess computingDataAccess;
   final SelectComputingMethodOutput selectComputingMethodOutput;
 
   SelectComputingMethodUseCase(
-      this.computingMethodsDataAccess, this.selectComputingMethodOutput);
+      this.computingDataAccess, this.selectComputingMethodOutput);
 
   @override
   Future<bool> call(ComputingMethodInputDTO params) async {
     var resultComputingMethod =
-        await computingMethodsDataAccess.getComputingMethod(params.uniqueName);
+        await computingDataAccess.getComputingMethod(params.uniqueName);
 
     ComputingMethod? computingMethod = null;
 
@@ -24,8 +24,8 @@ class SelectComputingMethodUseCase implements SelectComputingMethod {
     if (resultComputingMethod.isFailure() || computingMethod == null)
       return false;
 
-    var selectedResult = await computingMethodsDataAccess
-        .selectComputingMethod(computingMethod!);
+    var selectedResult =
+        await computingDataAccess.selectComputingMethod(computingMethod!);
 
     await selectedResult.fold(
       (failure) async =>

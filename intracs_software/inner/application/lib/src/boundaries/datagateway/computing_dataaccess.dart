@@ -3,7 +3,7 @@ import 'package:intracs_entities/entities.dart';
 
 /// Defines the methods to manage the data needed
 /// for the use cases using [ComputingMethod]
-abstract class ComputingMethodsDataAccess {
+abstract class ComputingDataAccess {
   Future<Result<Exception, ComputingMethod>> selectComputingMethod(
       ComputingMethod method);
   Future<Result<Exception, List<ComputingMethod>>> getComputingMethods();

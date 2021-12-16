@@ -14,7 +14,7 @@ class MockGatheringRawDataRepository extends Mock
     implements GatheringRawDataDataAccess {}
 
 class MockComputingMethodsRepository extends Mock
-    implements ComputingMethodsDataAccess {}
+    implements ComputingDataAccess {}
 
 void main() {
   late MockGatheringRawDataRepository mockedRepository;

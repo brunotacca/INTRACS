@@ -1,18 +1,18 @@
 import 'package:intracs_application/application.dart';
 
 class StartComputingRawDataUseCase implements StartComputingRawData {
-  final ComputingMethodsDataAccess computingMethodsDataAccess;
+  final ComputingDataAccess computingDataAccess;
   final IsComputingRawDataOutput isComputingRawDataOutput;
   StartComputingRawDataUseCase(
-      this.computingMethodsDataAccess, this.isComputingRawDataOutput);
+      this.computingDataAccess, this.isComputingRawDataOutput);
 
   @override
   Future<bool> call() async {
-    if (await computingMethodsDataAccess.isComputingRawData()) {
+    if (await computingDataAccess.isComputingRawData()) {
       await isComputingRawDataOutput
           .call(Success(IsComputingRawDataOutputDTO(true)));
     } else {
-      var result = await computingMethodsDataAccess.startComputingRawData();
+      var result = await computingDataAccess.startComputingRawData();
       await result.fold(
         (failure) async =>
             await isComputingRawDataOutput.call(Failure(failure)),
