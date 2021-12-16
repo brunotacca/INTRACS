@@ -165,4 +165,60 @@ void main() {
           Failure<Exception, RawDataOutputDTO>(genericException).runtimeType);
     });
   });
+
+  group('Start/Stop GatheringRawData', () {
+    late StartGatheringRawDataUseCase useCaseStart;
+    late StopGatheringRawDataUseCase useCaseStop;
+    late GatheringRawDataInfoOutput output;
+
+    setUp(() {
+      output = MockGatheringRawDataInfoOutput();
+      useCaseStart = StartGatheringRawDataUseCase(mockedRepository, output);
+      useCaseStop = StopGatheringRawDataUseCase(mockedRepository, output);
+    });
+
+    test('Should call start if it is stopped', () async {
+      // Arrange / Given
+      // Stub for repository call, returning something
+      when(() => mockedRepository.isGatheringRawData())
+          .thenAnswer((_) async => Success<Exception, bool>(false));
+      when(() => mockedRepository.startGatheringRawData())
+          .thenAnswer((_) async => Success<Exception, bool>(true));
+      // Stub for output call, return true (meaning executed with success);
+      when(() => output.call(any())).thenAnswer((_) async => true);
+
+      // Act / When
+      await useCaseStart.call();
+
+      // Assert / Expect
+      // Verify repository was called once
+      verifyInOrder([
+        () => mockedRepository.isGatheringRawData(),
+        () => mockedRepository.startGatheringRawData(),
+        () => output.call(any()),
+      ]);
+    });
+
+    test('Should call stop if it is started', () async {
+      // Arrange / Given
+      // Stub for repository call, returning something
+      when(() => mockedRepository.isGatheringRawData())
+          .thenAnswer((_) async => Success<Exception, bool>(true));
+      when(() => mockedRepository.stopGatheringRawData())
+          .thenAnswer((_) async => Success<Exception, bool>(true));
+      // Stub for output call, return true (meaning executed with success);
+      when(() => output.call(any())).thenAnswer((_) async => true);
+
+      // Act / When
+      await useCaseStop.call();
+
+      // Assert / Expect
+      // Verify repository was called once
+      verifyInOrder([
+        () => mockedRepository.isGatheringRawData(),
+        () => mockedRepository.stopGatheringRawData(),
+        () => output.call(any()),
+      ]);
+    });
+  });
 }

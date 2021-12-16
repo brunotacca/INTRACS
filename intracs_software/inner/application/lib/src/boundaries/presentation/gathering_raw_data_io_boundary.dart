@@ -51,7 +51,9 @@ class XYZOutputDTO {
   });
 }
 
-abstract class ToggleGatheringRawData implements InputBoundary<bool> {}
+abstract class StartGatheringRawData implements InputBoundaryNoParams {}
+
+abstract class StopGatheringRawData implements InputBoundaryNoParams {}
 
 abstract class GatheringRawDataInfoOutput
     implements OutputBoundary<GatheringRawDataInfoOutputDTO> {}
