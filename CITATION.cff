@@ -6,6 +6,15 @@ authors:
   orcid: "https://orcid.org/0000-0002-2996-8360"
 title: "INTRACS - Inertial Tracker Computing System"
 version: 0.0.0-WIP
-doi: Not published
 date-released: 2022-01-01
 url: "https://github.com/brunotacca/INTRACS"
+preferred-citation:
+  type: article
+  authors:
+  - family-names: "Vitorelli Tacca de Oliveira"
+    given-names: "Bruno"
+    orcid: "https://orcid.org/0000-0002-2996-8360"
+  doi: "00.0000/00000"
+  month: 2
+  title: "INTRACS - Inertial Tracker Computing System"
+  year: 2022
