@@ -1,4 +1,4 @@
-export 'computing_methods_dataaccess.dart';
+export 'computing_dataaccess.dart';
 export 'devices_dataaccess.dart';
 export 'gathering_raw_data_dataaccess.dart';
 export 'transmission_state_dataaccess.dart';
