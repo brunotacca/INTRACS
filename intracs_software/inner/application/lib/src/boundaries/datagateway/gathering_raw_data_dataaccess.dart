@@ -12,4 +12,4 @@ abstract class GatheringRawDataDataAccess {
 }
 
 /// When RawData comes from the external sensors this use case is called.
-abstract class ReceivedRawData implements ReversedInputBoundary<RawData> {}
+abstract class ReceivedRawData implements EventInputBoundary<RawData> {}

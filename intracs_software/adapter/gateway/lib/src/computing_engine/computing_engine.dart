@@ -6,7 +6,7 @@ class ComputingEngine {
   bool _awaitingComputation = false;
   late StreamController<ComputedData> _streamController;
   Stream<ComputedData> get stream => _streamController.stream;
-  final ComputingMethodWithFunction _method;
+  final ComputingMethodWithEngine _method;
   final RawDataBuffer _rawDataBuffer;
   late Timer? _timer;
 
@@ -23,7 +23,7 @@ class ComputingEngine {
     if (_rawDataBuffer.isNotEmpty() && !_awaitingComputation) {
       RawData data = _rawDataBuffer.popFirst();
       _awaitingComputation = true;
-      ComputedData result = await _method.call(data);
+      ComputedData result = await _method.compute(data);
       _awaitingComputation = false;
       if (!_streamController.isClosed) {
         _streamController.add(result);

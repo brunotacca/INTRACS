@@ -9,4 +9,4 @@ abstract class TransmissionStateDataAccess {
 
 /// If the TransmissionState changes by some external factor this use case is called.
 abstract class ChangedTransmissionState
-    implements ReversedInputBoundary<TransmissionState> {}
+    implements EventInputBoundary<TransmissionState> {}

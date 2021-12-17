@@ -16,4 +16,4 @@ abstract class ComputingDataAccess {
 }
 
 abstract class ReceivedComputedData
-    implements ReversedInputBoundary<ComputedData> {}
+    implements EventInputBoundary<ComputedData> {}

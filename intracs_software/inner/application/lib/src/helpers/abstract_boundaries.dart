@@ -26,10 +26,10 @@ abstract class OutputBoundary<SuccessType> {
 
 /// Strutuce of an executable class receiving parameters
 /// Tipically used for implementing Use Cases.
-/// The Reversed acronym means that the input will not come from the user, but an event.
+/// The Event acronym means that the input will not come from the user, but an external event.
 /// which means that an event (not the user) at the outer layer can call this.
 /// The return [bool] is meant to give a response to the caller about the method execution
 /// If the method executed as it should, then [true]. If not, then [false].
-abstract class ReversedInputBoundary<SuccessType> {
+abstract class EventInputBoundary<SuccessType> {
   Future<bool> call(Result<Exception, SuccessType> result);
 }
