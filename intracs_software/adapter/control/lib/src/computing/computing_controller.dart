@@ -1,18 +1,17 @@
-import 'dart:developer';
-
 import 'package:intracs_application/application.dart';
 
-class ComputingMethodsController {
+class ComputingController {
   final GetComputingMethods _getComputingMethods;
   final SelectComputingMethod _selectComputingMethod;
   final StartComputingRawData _startComputingRawData;
   final StopComputingRawData _stopComputingRawData;
 
-  ComputingMethodsController(
-      this._getComputingMethods,
-      this._selectComputingMethod,
-      this._startComputingRawData,
-      this._stopComputingRawData);
+  ComputingController(
+    this._getComputingMethods,
+    this._selectComputingMethod,
+    this._startComputingRawData,
+    this._stopComputingRawData,
+  );
 
   Future<bool> getComputingMethods() async {
     await _getComputingMethods.call();
