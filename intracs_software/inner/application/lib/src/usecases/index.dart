@@ -1,4 +1,4 @@
 export 'computing_methods/index.dart';
-export 'transmission/index.dart';
-export 'device/index.dart';
+export 'transmission_state/index.dart';
+export 'devices/index.dart';
 export 'gathering_raw_data/index.dart';
