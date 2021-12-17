@@ -8,8 +8,8 @@ class ChangedTransmissionStateUseCase implements ChangedTransmissionState {
   @override
   Future<bool> call(Result<Exception, TransmissionState> result) async {
     dynamic r = await result.fold(
-      (failure) async => await output.call(Failure(failure)),
-      (success) async => await output.call(Success(success.parseAsOutputDTO())),
+      (failure) async => await output.show(Failure(failure)),
+      (success) async => await output.show(Success(success.parseAsOutputDTO())),
     );
     return (r != null);
   }

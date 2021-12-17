@@ -10,9 +10,9 @@ class ReceivedRawDataUseCase implements ReceivedRawData {
   Future<bool> call(Result<Exception, RawData> result) async {
     // send the raw data to the output
     dynamic r = await result.fold(
-      (failure) async => await output.call(Failure(failure)),
+      (failure) async => await output.show(Failure(failure)),
       (success) async {
-        await output.call(Success(success.parseAsOutputDTO()));
+        await output.show(Success(success.parseAsOutputDTO()));
 
         // verify if the application is computing rawdata and act accordingly
         await computingDataAccess.isComputingRawData().then(

@@ -17,7 +17,7 @@ class SelectComputingMethodUseCase implements SelectComputingMethod {
 
     await resultComputingMethod.fold(
       (failure) async =>
-          await selectComputingMethodOutput.call(Failure(failure)),
+          await selectComputingMethodOutput.show(Failure(failure)),
       (success) => computingMethod = success,
     );
 
@@ -29,9 +29,9 @@ class SelectComputingMethodUseCase implements SelectComputingMethod {
 
     await selectedResult.fold(
       (failure) async =>
-          await selectComputingMethodOutput.call(Failure(failure)),
+          await selectComputingMethodOutput.show(Failure(failure)),
       (success) async => await selectComputingMethodOutput
-          .call(Success(success.parseAsOutputDTO())),
+          .show(Success(success.parseAsOutputDTO())),
     );
 
     return true;

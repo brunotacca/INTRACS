@@ -16,12 +16,12 @@ class StopGatheringRawDataUseCase implements StopGatheringRawData {
     );
 
     if (isGathering == null) {
-      await output.call(Failure(Exception("COULDN'T FETCH GATHERING STATUS")));
+      await output.show(Failure(Exception("COULDN'T FETCH GATHERING STATUS")));
       return false;
     } else {
       // if it's already NOT gathering raw data
       if (!isGathering) {
-        await output.call(Success(
+        await output.show(Success(
           GatheringRawDataInfoOutputDTO(isGatheringRawData: isGathering),
         ));
         return true;
@@ -30,8 +30,8 @@ class StopGatheringRawDataUseCase implements StopGatheringRawData {
       else {
         dynamic r = await dataAccess.stopGatheringRawData();
         await r.fold(
-          (failure) async => await output.call(Failure(failure)),
-          (success) async => await output.call(Success(
+          (failure) async => await output.show(Failure(failure)),
+          (success) async => await output.show(Success(
               GatheringRawDataInfoOutputDTO(isGatheringRawData: success))),
         );
         return (r != null);

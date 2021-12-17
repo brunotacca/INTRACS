@@ -64,7 +64,7 @@ void main() {
       when(() => mockedDevicesRepository.getDevicesAvailable()).thenAnswer(
           (_) async => Success<Exception, List<Device>>([mockedDevice]));
       // Stub for output call, return true (meaning executed with success);
-      when(() => output.call(any())).thenAnswer((_) async => true);
+      when(() => output.show(any())).thenAnswer((_) async => true);
 
       // Act / When
       await useCase.call();
@@ -73,7 +73,7 @@ void main() {
       // Verify repository was called once
       verifyInOrder([
         () => mockedDevicesRepository.getDevicesAvailable(),
-        () => output.call(any()),
+        () => output.show(any()),
       ]);
     });
   }); // Group GetDevicesAvailable
@@ -101,7 +101,7 @@ void main() {
           .thenAnswer((_) async =>
               Success<Exception, UserSettings>(mockedUserSettings));
       // // Stub for output call
-      when(() => output.call(any())).thenAnswer((_) async => true);
+      when(() => output.show(any())).thenAnswer((_) async => true);
 
       // Act / When
       await useCase.call(mockedDeviceInputDTO);
@@ -112,7 +112,7 @@ void main() {
         () => mockedDevicesRepository.connectToDevice(any()),
         () => mockedUserSettingsRepository.getUserSettings(),
         () => mockedUserSettingsRepository.setUserSettings(any()),
-        () => output.call(any()),
+        () => output.show(any()),
       ]);
     });
     test('Should output a Failure when Repository returns a Failure', () async {
@@ -121,14 +121,14 @@ void main() {
       when(() => mockedDevicesRepository.connectToDevice(any())).thenAnswer(
           (_) async => Failure<Exception, Device>(genericException));
       // stub the output call, return true (meaning executed with success);
-      when(() => output.call(any())).thenAnswer((_) async => true);
+      when(() => output.show(any())).thenAnswer((_) async => true);
 
       // Act / When
       await useCase.call(mockedDeviceInputDTO);
 
       // Assert / Expect
       // Verify if the output was called with the correct arg type
-      final capturedArg = verify(() => output.call(captureAny())).captured;
+      final capturedArg = verify(() => output.show(captureAny())).captured;
       expect(capturedArg.last.runtimeType,
           Failure<Exception, DeviceOutputDTO>(genericException).runtimeType);
     });

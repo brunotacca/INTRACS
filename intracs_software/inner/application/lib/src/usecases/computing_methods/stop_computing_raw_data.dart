@@ -10,14 +10,14 @@ class StopComputingRawDataUseCase implements StopComputingRawData {
   Future<bool> call() async {
     if (!(await computingDataAccess.isComputingRawData())) {
       await isComputingRawDataOutput
-          .call(Success(IsComputingRawDataOutputDTO(false)));
+          .show(Success(IsComputingRawDataOutputDTO(false)));
     } else {
       var result = await computingDataAccess.stopComputingRawData();
       await result.fold(
         (failure) async =>
-            await isComputingRawDataOutput.call(Failure(failure)),
+            await isComputingRawDataOutput.show(Failure(failure)),
         (success) async => await isComputingRawDataOutput
-            .call(Success(IsComputingRawDataOutputDTO(false))),
+            .show(Success(IsComputingRawDataOutputDTO(false))),
       );
     }
     return true;

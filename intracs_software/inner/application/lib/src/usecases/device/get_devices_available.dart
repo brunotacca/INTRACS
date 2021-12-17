@@ -9,11 +9,11 @@ class GetDevicesAvailableUseCase implements GetDevicesAvailable {
   Future<bool> call() async {
     var result = await devicesDataAccess.getDevicesAvailable();
     await result.fold(
-      (failure) async => await output.call(Failure(failure)),
+      (failure) async => await output.show(Failure(failure)),
       (success) async {
         List<DeviceOutputDTO> outputResult =
             success.map((e) => e.parseAsOutputDTO()).toList();
-        await output.call(Success(outputResult));
+        await output.show(Success(outputResult));
       },
     );
     return true;

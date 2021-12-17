@@ -1,0 +1,10 @@
+name: intracs_presentation
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: ">=2.14.0 <3.0.0"
+
+dependencies:
+  intracs_application:
+    path: ../../inner/application

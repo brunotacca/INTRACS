@@ -52,7 +52,7 @@ void main() {
       when(() => mockedRepository.getTransmissionState())
           .thenAnswer((_) async => repositoryResultSuccess);
       // Stub for output call, return true (meaning executed with success);
-      when(() => output.call(any())).thenAnswer((_) async => true);
+      when(() => output.show(any())).thenAnswer((_) async => true);
 
       // Act / When
       await useCase.call();
@@ -61,7 +61,7 @@ void main() {
       // Verify repository was called once
       verifyInOrder([
         () => mockedRepository.getTransmissionState(),
-        () => output.call(any()),
+        () => output.show(any()),
       ]);
     });
     test(
@@ -72,14 +72,14 @@ void main() {
       when(() => mockedRepository.getTransmissionState())
           .thenAnswer((_) async => repositoryResultFailure);
       // stub the output call, return true (meaning executed with success);
-      when(() => output.call(any())).thenAnswer((_) async => true);
+      when(() => output.show(any())).thenAnswer((_) async => true);
 
       // Act / When
       await useCase.call();
 
       // Assert / Expect
       // Verify if the output was called with the correct arg type
-      final capturedArg = verify(() => output.call(captureAny())).captured;
+      final capturedArg = verify(() => output.show(captureAny())).captured;
       expect(capturedArg.last.runtimeType, outputParameterFailure.runtimeType);
     });
 
@@ -91,14 +91,14 @@ void main() {
       when(() => mockedRepository.getTransmissionState())
           .thenAnswer((_) async => repositoryResultSuccess);
       // stub the output call, return true (meaning executed with success);
-      when(() => output.call(any())).thenAnswer((_) async => true);
+      when(() => output.show(any())).thenAnswer((_) async => true);
 
       // Act / When
       await useCase.call();
 
       // Assert / Expect
       // Verify if the output was called with the correct arg type
-      final capturedArg = verify(() => output.call(captureAny())).captured;
+      final capturedArg = verify(() => output.show(captureAny())).captured;
       expect(capturedArg.last.runtimeType, outputParameterSuccess.runtimeType);
     });
   });
@@ -120,14 +120,14 @@ void main() {
       final failureCase =
           Failure<Exception, TransmissionState>(genericException);
       // stub the output call, return true (meaning executed with success);
-      when(() => output.call(any())).thenAnswer((_) async => true);
+      when(() => output.show(any())).thenAnswer((_) async => true);
 
       // Act / When
       await useCase.call(successCase);
       await useCase.call(failureCase);
 
       // Assert / Expect
-      final capturedCallArgs = verify(() => output.call(captureAny())).captured;
+      final capturedCallArgs = verify(() => output.show(captureAny())).captured;
       // success was called first
       expect(capturedCallArgs.first.runtimeType,
           outputParameterSuccess.runtimeType);

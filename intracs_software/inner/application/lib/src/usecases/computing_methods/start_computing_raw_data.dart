@@ -10,14 +10,14 @@ class StartComputingRawDataUseCase implements StartComputingRawData {
   Future<bool> call() async {
     if (await computingDataAccess.isComputingRawData()) {
       await isComputingRawDataOutput
-          .call(Success(IsComputingRawDataOutputDTO(true)));
+          .show(Success(IsComputingRawDataOutputDTO(true)));
     } else {
       var result = await computingDataAccess.startComputingRawData();
       await result.fold(
         (failure) async =>
-            await isComputingRawDataOutput.call(Failure(failure)),
+            await isComputingRawDataOutput.show(Failure(failure)),
         (success) async => await isComputingRawDataOutput
-            .call(Success(IsComputingRawDataOutputDTO(true))),
+            .show(Success(IsComputingRawDataOutputDTO(true))),
       );
     }
     return true;

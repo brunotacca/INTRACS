@@ -10,7 +10,7 @@ class GetRawDataGatheringInfoUseCase implements GetRawDataGatheringInfo {
     var resultGathering = await dataAccess.isGatheringRawData();
 
     bool? isGathering = await resultGathering.fold((failure) async {
-      await output.call(Failure(failure));
+      await output.show(Failure(failure));
       return null;
     }, (success) => success);
     if (isGathering == null) return false;
@@ -18,19 +18,19 @@ class GetRawDataGatheringInfoUseCase implements GetRawDataGatheringInfo {
     var resultAmount = await dataAccess.getAmountRawDataGatheredSinceStart();
 
     int? amount = await resultAmount.fold((failure) async {
-      await output.call(Failure(failure));
+      await output.show(Failure(failure));
       return null;
     }, (success) => success);
     if (amount == null) return false;
 
     var resultSeconds = await dataAccess.getSecondsElapsedSinceStart();
     int? secondsElapsed = await resultSeconds.fold((failure) async {
-      await output.call(Failure(failure));
+      await output.show(Failure(failure));
       return null;
     }, (success) => success);
     if (secondsElapsed == null) return false;
 
-    await output.call(Success(
+    await output.show(Success(
       GatheringRawDataInfoOutputDTO(
         isGatheringRawData: true,
         rawDataGatheredAmount: amount,

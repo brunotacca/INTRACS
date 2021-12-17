@@ -100,7 +100,7 @@ void main() {
           .thenAnswer((_) async => Success<Exception, List<ComputingMethod>>(
               [mockedComputingMethod]));
       // Stub for output call, return true (meaning executed with success);
-      when(() => output.call(any())).thenAnswer((_) async => true);
+      when(() => output.show(any())).thenAnswer((_) async => true);
 
       // Act / When
       await useCase.call();
@@ -109,7 +109,7 @@ void main() {
       // Verify repository was called once
       verifyInOrder([
         () => mockedComputingMethodsRepository.getComputingMethods(),
-        () => output.call(any()),
+        () => output.show(any()),
       ]);
     });
   });
@@ -142,7 +142,7 @@ void main() {
           .thenAnswer((_) async =>
               Success<Exception, ComputingMethod>(mockedComputingMethod));
       // Stub for output call, return true (meaning executed with success);
-      when(() => output.call(any())).thenAnswer((_) async => true);
+      when(() => output.show(any())).thenAnswer((_) async => true);
 
       // Act / When
       await useCase.call(mockedComputingMethodInputDTO);
@@ -154,7 +154,7 @@ void main() {
             .getComputingMethod(mockedComputingMethod.uniqueName),
         () => mockedComputingMethodsRepository
             .selectComputingMethod(mockedComputingMethod),
-        () => output.call(any()),
+        () => output.show(any()),
       ]);
     });
 
@@ -169,14 +169,14 @@ void main() {
               .getComputingMethod(mockedComputingMethod.uniqueName)).thenAnswer(
           (_) async => Failure<Exception, ComputingMethod>(genericException));
       // Stub for output call, return true (meaning executed with success);
-      when(() => output.call(any())).thenAnswer((_) async => true);
+      when(() => output.show(any())).thenAnswer((_) async => true);
 
       // Act / When
       bool r = await useCase.call(mockedComputingMethodInputDTO);
 
       // Assert / Expect
       // Verify if the output was called with the correct arg type
-      final capturedArg = verify(() => output.call(captureAny())).captured;
+      final capturedArg = verify(() => output.show(captureAny())).captured;
       expect(
         capturedArg.last.runtimeType,
         Failure<Exception, ComputingMethodOutputDTO>(genericException)
@@ -200,14 +200,14 @@ void main() {
           .thenAnswer((_) async =>
               Success<Exception, ComputingMethod>(mockedComputingMethod));
       // Stub for output call, return true (meaning executed with success);
-      when(() => output.call(any())).thenAnswer((_) async => true);
+      when(() => output.show(any())).thenAnswer((_) async => true);
 
       // Act / When
       bool r = await useCase.call(mockedComputingMethodInputDTO);
 
       // Assert / Expect
       // Verify if the output was called with the correct arg type
-      final capturedArg = verify(() => output.call(captureAny())).captured;
+      final capturedArg = verify(() => output.show(captureAny())).captured;
       expect(
         capturedArg.last.runtimeType,
         Success<Exception, ComputingMethodOutputDTO>(
@@ -240,7 +240,7 @@ void main() {
       when(() => mockedComputingMethodsRepository.startComputingRawData())
           .thenAnswer((_) async => Success<Exception, bool>(true));
       // Stub for output call, return true (meaning executed with success);
-      when(() => output.call(any())).thenAnswer((_) async => true);
+      when(() => output.show(any())).thenAnswer((_) async => true);
 
       // Act / When
       await useCaseStart.call();
@@ -250,7 +250,7 @@ void main() {
       verifyInOrder([
         () => mockedComputingMethodsRepository.isComputingRawData(),
         () => mockedComputingMethodsRepository.startComputingRawData(),
-        () => output.call(any()),
+        () => output.show(any()),
       ]);
     });
 
@@ -262,7 +262,7 @@ void main() {
       when(() => mockedComputingMethodsRepository.stopComputingRawData())
           .thenAnswer((_) async => Success<Exception, bool>(true));
       // Stub for output call, return true (meaning executed with success);
-      when(() => output.call(any())).thenAnswer((_) async => true);
+      when(() => output.show(any())).thenAnswer((_) async => true);
 
       // Act / When
       await useCaseStop.call();
@@ -272,7 +272,7 @@ void main() {
       verifyInOrder([
         () => mockedComputingMethodsRepository.isComputingRawData(),
         () => mockedComputingMethodsRepository.stopComputingRawData(),
-        () => output.call(any()),
+        () => output.show(any()),
       ]);
     });
   });
@@ -292,14 +292,14 @@ void main() {
       final successCase = Success<Exception, ComputedData>(computedData);
       final failureCase = Failure<Exception, ComputedData>(genericException);
       // stub the output call, return true (meaning executed with success);
-      when(() => output.call(any())).thenAnswer((_) async => true);
+      when(() => output.show(any())).thenAnswer((_) async => true);
 
       // Act / When
       await useCase.call(successCase);
       await useCase.call(failureCase);
 
       // Assert / Expect
-      final capturedCallArgs = verify(() => output.call(captureAny())).captured;
+      final capturedCallArgs = verify(() => output.show(captureAny())).captured;
       // success was called first
       expect(
           capturedCallArgs.first.runtimeType,

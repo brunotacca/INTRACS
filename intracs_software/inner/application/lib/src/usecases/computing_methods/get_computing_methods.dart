@@ -11,9 +11,9 @@ class GetComputingMethodsUseCase implements GetComputingMethods {
   Future<bool> call() async {
     var resultMethods = await computingDataAccess.getComputingMethods();
     await resultMethods.fold(
-      (failure) async => await getComputingMethodsOutput.call(Failure(failure)),
+      (failure) async => await getComputingMethodsOutput.show(Failure(failure)),
       (success) async => await getComputingMethodsOutput
-          .call(Success(success.map((e) => e.parseAsOutputDTO()).toList())),
+          .show(Success(success.map((e) => e.parseAsOutputDTO()).toList())),
     );
     return true;
   }

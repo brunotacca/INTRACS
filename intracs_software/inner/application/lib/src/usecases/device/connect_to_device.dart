@@ -17,7 +17,7 @@ class ConnectToDeviceUseCase implements ConnectToDevice {
     bool execution = await result.fold(
       // If an exception occurred at the connection pass it through
       (failure) async {
-        await output.call(Failure(failure));
+        await output.show(Failure(failure));
         return true;
       },
       // If succcessfully connected
@@ -28,7 +28,7 @@ class ConnectToDeviceUseCase implements ConnectToDevice {
         // Handle failure/success cases of the result from the repository call
         await result.fold(
           // if couldn't get the userSettings pass the exception
-          (failure) async => await output.call(Failure(failure)),
+          (failure) async => await output.show(Failure(failure)),
           // if ok, then assign
           (success) {
             userSettings = success;
@@ -36,7 +36,7 @@ class ConnectToDeviceUseCase implements ConnectToDevice {
         );
         // If userSettings doesn't exist, something went wrong.
         if (userSettings == null) {
-          await output.call(Failure(Exception("GENERIC_ERROR")));
+          await output.show(Failure(Exception("GENERIC_ERROR")));
           return false;
         } else {
           // Update the connected device on user settings
@@ -44,7 +44,7 @@ class ConnectToDeviceUseCase implements ConnectToDevice {
           await userSettingsDataAccess.setUserSettings(userSettings!);
 
           // call the output with a success result
-          await output.call(Success(success.parseAsOutputDTO()));
+          await output.show(Success(success.parseAsOutputDTO()));
           return true;
         }
       },

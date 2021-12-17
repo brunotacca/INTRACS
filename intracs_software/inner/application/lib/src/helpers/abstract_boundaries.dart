@@ -21,7 +21,7 @@ abstract class InputBoundaryNoParams {
 /// The return [bool] is meant to give a response to the caller about the method execution
 /// If the method executed as it should, then [true]. If not, then [false].
 abstract class OutputBoundary<SuccessType> {
-  Future<bool> call(Result<Exception, SuccessType> result);
+  Future<bool> show(Result<Exception, SuccessType> result);
 }
 
 /// Strutuce of an executable class receiving parameters

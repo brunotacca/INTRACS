@@ -8,8 +8,8 @@ class ReceivedComputedDataUseCase implements ReceivedComputedData {
   @override
   Future<bool> call(Result<Exception, ComputedData> result) async {
     await result.fold(
-      (failure) async => await output.call(Failure(failure)),
-      (success) async => await output.call(Success(success.parseAsOutputDTO())),
+      (failure) async => await output.show(Failure(failure)),
+      (success) async => await output.show(Success(success.parseAsOutputDTO())),
     );
     return true;
   }

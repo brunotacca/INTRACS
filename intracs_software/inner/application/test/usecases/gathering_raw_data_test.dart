@@ -75,7 +75,7 @@ void main() {
       when(() => mockedRepository.getSecondsElapsedSinceStart())
           .thenAnswer((_) async => Success<Exception, int>(100));
       // Stub for output call, return true (meaning executed with success);
-      when(() => output.call(any())).thenAnswer((_) async => true);
+      when(() => output.show(any())).thenAnswer((_) async => true);
 
       // Act / When
       await useCase.call();
@@ -85,7 +85,7 @@ void main() {
       verify(() => mockedRepository.isGatheringRawData());
       verify(() => mockedRepository.getAmountRawDataGatheredSinceStart());
       verify(() => mockedRepository.getSecondsElapsedSinceStart());
-      verify(() => output.call(any()));
+      verify(() => output.show(any()));
     });
 
     test(
@@ -100,14 +100,14 @@ void main() {
       when(() => mockedRepository.getSecondsElapsedSinceStart())
           .thenAnswer((_) async => Failure<Exception, int>(genericException));
       // stub the output call, return true (meaning executed with success);
-      when(() => output.call(any())).thenAnswer((_) async => true);
+      when(() => output.show(any())).thenAnswer((_) async => true);
 
       // Act / When
       await useCase.call();
 
       // Assert / Expect
       // Verify if the output was called with the correct arg type
-      final capturedArg = verify(() => output.call(captureAny())).captured;
+      final capturedArg = verify(() => output.show(captureAny())).captured;
       expect(
           capturedArg.last.runtimeType,
           Failure<Exception, GatheringRawDataInfoOutputDTO>(genericException)
@@ -126,14 +126,14 @@ void main() {
       when(() => mockedRepository.getSecondsElapsedSinceStart())
           .thenAnswer((_) async => Success<Exception, int>(100));
       // stub the output call, return true (meaning executed with success);
-      when(() => output.call(any())).thenAnswer((_) async => true);
+      when(() => output.show(any())).thenAnswer((_) async => true);
 
       // Act / When
       await useCase.call();
 
       // Assert / Expect
       // Verify if the output was called with the correct arg type
-      final capturedArg = verify(() => output.call(captureAny())).captured;
+      final capturedArg = verify(() => output.show(captureAny())).captured;
       expect(
           capturedArg.last.runtimeType,
           Success<Exception, GatheringRawDataInfoOutputDTO>(
@@ -160,14 +160,14 @@ void main() {
       final successCase = Success<Exception, RawData>(rawData);
       final failureCase = Failure<Exception, RawData>(genericException);
       // stub the output call, return true (meaning executed with success);
-      when(() => output.call(any())).thenAnswer((_) async => true);
+      when(() => output.show(any())).thenAnswer((_) async => true);
 
       // Act / When
       await useCase.call(successCase);
       await useCase.call(failureCase);
 
       // Assert / Expect
-      final capturedCallArgs = verify(() => output.call(captureAny())).captured;
+      final capturedCallArgs = verify(() => output.show(captureAny())).captured;
       // success was called first
       expect(capturedCallArgs.first.runtimeType,
           Success<Exception, RawDataOutputDTO>(rawDataOutputDTO).runtimeType);
@@ -187,7 +187,7 @@ void main() {
       when(() => mockedComputingMethodsRepository.registerNewRawData(rawData))
           .thenReturn(Void);
       // Stub for output call, return true (meaning executed with success);
-      when(() => output.call(any())).thenAnswer((_) async => true);
+      when(() => output.show(any())).thenAnswer((_) async => true);
 
       // Act / When
       await useCase.call(successCase);
@@ -195,7 +195,7 @@ void main() {
       // Assert / Expect
       // Verify call order
       verifyInOrder([
-        () => output.call(any()),
+        () => output.show(any()),
         () => mockedComputingMethodsRepository.isComputingRawData(),
         () => mockedComputingMethodsRepository.registerNewRawData(rawData),
       ]);
@@ -221,7 +221,7 @@ void main() {
       when(() => mockedRepository.startGatheringRawData())
           .thenAnswer((_) async => Success<Exception, bool>(true));
       // Stub for output call, return true (meaning executed with success);
-      when(() => output.call(any())).thenAnswer((_) async => true);
+      when(() => output.show(any())).thenAnswer((_) async => true);
 
       // Act / When
       await useCaseStart.call();
@@ -231,7 +231,7 @@ void main() {
       verifyInOrder([
         () => mockedRepository.isGatheringRawData(),
         () => mockedRepository.startGatheringRawData(),
-        () => output.call(any()),
+        () => output.show(any()),
       ]);
     });
 
@@ -243,7 +243,7 @@ void main() {
       when(() => mockedRepository.stopGatheringRawData())
           .thenAnswer((_) async => Success<Exception, bool>(true));
       // Stub for output call, return true (meaning executed with success);
-      when(() => output.call(any())).thenAnswer((_) async => true);
+      when(() => output.show(any())).thenAnswer((_) async => true);
 
       // Act / When
       await useCaseStop.call();
@@ -253,7 +253,7 @@ void main() {
       verifyInOrder([
         () => mockedRepository.isGatheringRawData(),
         () => mockedRepository.stopGatheringRawData(),
-        () => output.call(any()),
+        () => output.show(any()),
       ]);
     });
   });
