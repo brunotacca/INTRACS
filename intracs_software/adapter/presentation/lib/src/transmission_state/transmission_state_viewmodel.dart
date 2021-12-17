@@ -29,8 +29,8 @@ class TransmissionStateViewModel {
   String get transmittingText => transmitting == true ? "TRANSMITTING" : "IDLE";
 }
 
-extension TransmissionStateDisplayModelParsing on TransmissionStateOutputDTO {
-  TransmissionStateViewModel parseAsDisplayModel() {
+extension TransmissionStateViewModelParsing on TransmissionStateOutputDTO {
+  TransmissionStateViewModel parseAsViewModel() {
     return TransmissionStateViewModel(
       authorized: this.authorized,
       connected: this.connected,

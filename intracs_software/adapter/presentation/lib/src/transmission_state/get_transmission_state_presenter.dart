@@ -11,7 +11,7 @@ class GetTransmissionStatePresenter implements GetTransmissionStateOutput {
     await result.fold(
       (failure) async => await view.display(Failure(failure)),
       (success) async =>
-          await view.display(Success(success.parseAsDisplayModel())),
+          await view.display(Success(success.parseAsViewModel())),
     );
     return true;
   }
