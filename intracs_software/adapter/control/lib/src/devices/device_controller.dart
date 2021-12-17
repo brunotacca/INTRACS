@@ -1,9 +1,9 @@
 import 'package:intracs_application/application.dart';
 
-class DeviceSender {
+class DeviceController {
   final GetDevicesAvailable _getDevicesAvailable;
   final ConnectToDevice _connectToDevice;
-  DeviceSender(this._getDevicesAvailable, this._connectToDevice);
+  DeviceController(this._getDevicesAvailable, this._connectToDevice);
 
   Future<bool> getDevicesAvailable() async {
     return await _getDevicesAvailable.call();

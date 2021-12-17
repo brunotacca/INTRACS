@@ -1,14 +1,12 @@
 import 'package:intracs_application/application.dart';
 import 'package:intracs_presentation/presentation.dart';
 
-class ChangedTransmissionStatePresenter
-    implements ChangedTransmissionStateOutput {
-  final TransmissionStateView _view;
-  ChangedTransmissionStatePresenter(this._view);
+class SelectComputingMethodPresenter implements SelectComputingMethodOutput {
+  final SelectComputingMethodView _view;
+  SelectComputingMethodPresenter(this._view);
 
   @override
-  Future<bool> show(
-      Result<Exception, TransmissionStateOutputDTO> result) async {
+  Future<bool> show(Result<Exception, ComputingMethodOutputDTO> result) async {
     await result.fold(
       (failure) async => await _view.display(Failure(failure)),
       (success) async =>

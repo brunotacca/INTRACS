@@ -3,13 +3,13 @@ import 'package:intracs_application/application.dart';
 import 'package:intracs_entities/entities.dart';
 
 class TransmissionStateRepository extends TransmissionStateDataAccess {
-  final TransmissionStateSource transmissionStateDataSource;
-  TransmissionStateRepository(this.transmissionStateDataSource);
+  final TransmissionStateSource _transmissionStateDataSource;
+  TransmissionStateRepository(this._transmissionStateDataSource);
 
   @override
   Future<Result<Exception, TransmissionState>> getTransmissionState() async {
     try {
-      return await transmissionStateDataSource.readTransmissionState();
+      return await _transmissionStateDataSource.readTransmissionState();
     } on Exception catch (e) {
       return Failure(e);
     }
