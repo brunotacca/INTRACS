@@ -14,13 +14,6 @@ class GatheringRawDataInfoOutputDTO {
   });
 }
 
-class IsGatheringRawDataInputDTO {
-  final bool isGatheringRawData;
-  IsGatheringRawDataInputDTO({
-    required this.isGatheringRawData,
-  });
-}
-
 class RawDataOutputDTO {
   final DateTime? timestamp;
   final int? sensorNumber;

@@ -24,12 +24,12 @@ class ComputingController {
     return true;
   }
 
-  Future startComputingRawData() async {
+  Future<bool> startComputingRawData() async {
     await _startComputingRawData.call();
     return true;
   }
 
-  Future stopComputingRawData() async {
+  Future<bool> stopComputingRawData() async {
     await _stopComputingRawData.call();
     return true;
   }
