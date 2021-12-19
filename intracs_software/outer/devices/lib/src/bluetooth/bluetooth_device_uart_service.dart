@@ -12,13 +12,18 @@ class BluetoothDeviceUARTService implements GatheringRawDataSource {
   final FlutterBlue _flutterBlue = FlutterBlue.instance;
   final ReceivedRawDataEventController _receivedRawDataEventController;
   BluetoothDeviceUARTService(this._receivedRawDataEventController);
-  bool _started = false;
+
   BluetoothDevice? connectedDevice;
   BluetoothService? uartService;
   BluetoothCharacteristic? uartTransmitter;
   BluetoothCharacteristic? uartReceiver;
   Stream<List<int>>? uartReceiverValueStream;
   StreamSubscription<dynamic>? uartReceiverValueStreamSubscription;
+
+  bool _started = false;
+  int _gatheringRawDataCounter = 0;
+  DateTime? _gatheringRawDataStartTime;
+  int _secondsSinceStart = 0;
 
   static const _UART_SERVICE_UUID = "6e400001-b5a3-f393-e0a9-e50e24dcca9e";
   static const _UART_TX_CHAR_UUID = "6e400002-b5a3-f393-e0a9-e50e24dcca9e";
@@ -144,7 +149,7 @@ class BluetoothDeviceUARTService implements GatheringRawDataSource {
           );
 
           RawData rawData = RawData(
-            count: dataCount,
+            count: _gatheringRawDataCounter,
             timestamp: now,
             sensor: Sensor(
               name: sensorName,
@@ -155,8 +160,10 @@ class BluetoothDeviceUARTService implements GatheringRawDataSource {
             magnetometer: mag,
           );
 
-          if (sensorNumber == 1) dataCount++;
+          if (sensorNumber == 1) _gatheringRawDataCounter++;
           // log("- RAW DATA: $rawData");
+          _secondsSinceStart =
+              DateTime.now().difference(_gatheringRawDataStartTime!).inSeconds;
           _receivedRawDataEventController.register(Success(rawData));
         }
       });
@@ -170,7 +177,6 @@ class BluetoothDeviceUARTService implements GatheringRawDataSource {
     }
   }
 
-  int dataCount = 0;
   @override
   Future<Result<Exception, bool>> startGatheringRawData() async {
     log("startGatheringRawData()> _started: $_started");
@@ -186,7 +192,8 @@ class BluetoothDeviceUARTService implements GatheringRawDataSource {
       if (isEverythingConfigured()) {
         await _sendUARTMessage("#START");
         _started = true;
-        dataCount = 0;
+        _gatheringRawDataCounter = 0;
+        _gatheringRawDataStartTime = DateTime.now();
         return Success(true);
       } else {
         _started = false;
@@ -219,20 +226,17 @@ class BluetoothDeviceUARTService implements GatheringRawDataSource {
   }
 
   @override
-  Future<Result<Exception, int>> getAmountRawDataGatheredSinceStart() {
-    // TODO: implement getAmountRawDataGatheredSinceStart
-    throw UnimplementedError();
+  Future<Result<Exception, int>> getAmountRawDataGatheredSinceStart() async {
+    return Success(_gatheringRawDataCounter);
   }
 
   @override
-  Future<Result<Exception, int>> getSecondsElapsedSinceStart() {
-    // TODO: implement getSecondsElapsedSinceStart
-    throw UnimplementedError();
+  Future<Result<Exception, int>> getSecondsElapsedSinceStart() async {
+    return Success(_secondsSinceStart);
   }
 
   @override
-  Future<Result<Exception, bool>> isGatheringRawData() {
-    // TODO: implement isGatheringRawData
-    throw UnimplementedError();
+  Future<Result<Exception, bool>> isGatheringRawData() async {
+    return Success(_started);
   }
 }

@@ -22,7 +22,7 @@ class DataMonitorController extends GetxController {
     await _computingMethodsController.stopComputingRawData();
   }
 
-  var strDataReceived = "".obs; // #TODO REMOVE - BELONGS TO DOMAIN
+  var strDataReceived = "";
   var dataCounter = 0.obs; // #TODO REMOVE - BELONGS TO DOMAIN
   var dataPerSecond = 0.0.obs; // #TODO REMOVE - BELONGS TO DOMAIN
   DateTime? _firstDataReceivedTime; // #TODO REMOVE - BELONGS TO DOMAIN
@@ -37,8 +37,7 @@ class DataMonitorController extends GetxController {
     super.onInit();
     // Called when raw data is received
     receivedRawDataDisplay.addListener(() {
-      strDataReceived.value =
-          receivedRawDataDisplay.rawDataViewModel.toString();
+      strDataReceived = receivedRawDataDisplay.rawDataViewModel.toString();
       if (receivedRawDataDisplay.rawDataViewModel != null) {
         dataCounter.value =
             receivedRawDataDisplay.rawDataViewModel!.dataNumber ?? -1;
