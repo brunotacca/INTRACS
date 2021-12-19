@@ -6,6 +6,10 @@ environment:
   sdk: ">=2.14.0 <3.0.0"
 
 dependencies:
+  flutter:
+    sdk: flutter
+  flutter_blue: ^0.8.0
+
   intracs_gateways:
     path: ../../adapter/gateways
   intracs_application:

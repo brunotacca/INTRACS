@@ -2,6 +2,42 @@
   "configVersion": 2,
   "packages": [
     {
+      "name": "characters",
+      "rootUri": "file:///home/tacca/tools/flutter/.pub-cache/hosted/pub.dartlang.org/characters-1.2.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
+      "name": "collection",
+      "rootUri": "file:///home/tacca/tools/flutter/.pub-cache/hosted/pub.dartlang.org/collection-1.15.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
+      "name": "convert",
+      "rootUri": "file:///home/tacca/tools/flutter/.pub-cache/hosted/pub.dartlang.org/convert-3.0.1",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
+      "name": "fixnum",
+      "rootUri": "file:///home/tacca/tools/flutter/.pub-cache/hosted/pub.dartlang.org/fixnum-1.0.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
+      "name": "flutter",
+      "rootUri": "file:///home/tacca/tools/flutter/packages/flutter",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
+      "name": "flutter_blue",
+      "rootUri": "file:///home/tacca/tools/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_blue-0.8.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
       "name": "intracs_application",
       "rootUri": "../../../inner/application",
       "packageUri": "lib/",
@@ -20,13 +56,49 @@
       "languageVersion": "2.14"
     },
     {
+      "name": "meta",
+      "rootUri": "file:///home/tacca/tools/flutter/.pub-cache/hosted/pub.dartlang.org/meta-1.7.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
+      "name": "protobuf",
+      "rootUri": "file:///home/tacca/tools/flutter/.pub-cache/hosted/pub.dartlang.org/protobuf-2.0.1",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
+      "name": "rxdart",
+      "rootUri": "file:///home/tacca/tools/flutter/.pub-cache/hosted/pub.dartlang.org/rxdart-0.26.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
+      "name": "sky_engine",
+      "rootUri": "file:///home/tacca/tools/flutter/bin/cache/pkg/sky_engine",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
+      "name": "typed_data",
+      "rootUri": "file:///home/tacca/tools/flutter/.pub-cache/hosted/pub.dartlang.org/typed_data-1.3.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
+      "name": "vector_math",
+      "rootUri": "file:///home/tacca/tools/flutter/.pub-cache/hosted/pub.dartlang.org/vector_math-2.1.1",
+      "packageUri": "lib/",
+      "languageVersion": "2.14"
+    },
+    {
       "name": "intracs_devices",
       "rootUri": "../",
       "packageUri": "lib/",
       "languageVersion": "2.14"
     }
   ],
-  "generated": "2021-12-19T15:12:04.499226Z",
+  "generated": "2021-12-19T16:04:19.629266Z",
   "generator": "pub",
   "generatorVersion": "2.15.0-268.18.beta"
 }

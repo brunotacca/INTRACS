@@ -6,9 +6,15 @@ environment:
   sdk: ">=2.14.0 <3.0.0"
 
 dependencies:
+  hive: ^2.0.5
+
   intracs_gateways:
     path: ../../adapter/gateways
   intracs_application:
     path: ../../inner/application
   intracs_entities:
     path: ../../inner/entities
+
+dev_dependencies:
+  hive_generator: ^1.1.1
+  build_runner: ^2.1.7

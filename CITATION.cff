@@ -1,8 +1,8 @@
 cff-version: 1.2.0
 message: "If you use this software, please cite it as below."
 authors:
-- family-names: "Vitorelli Tacca Oliveira"
-  given-names: "Bruno"
+- family-names: "Oliveira"
+  given-names: "Bruno Vitorelli Tacca"
   orcid: "https://orcid.org/0000-0002-2996-8360"
 title: "INTRACS - Inertial Tracker Computing System"
 version: 0.0.0-WIP
@@ -11,8 +11,8 @@ url: "https://github.com/brunotacca/INTRACS"
 preferred-citation:
   type: misc
   authors:
-  - family-names: "Vitorelli Tacca Oliveira"
-    given-names: "Bruno"
+  - family-names: "Oliveira"
+    given-names: "Bruno Vitorelli Tacca"
     orcid: "https://orcid.org/0000-0002-2996-8360"
   doi: "00.0000/00000"
   month: 2
