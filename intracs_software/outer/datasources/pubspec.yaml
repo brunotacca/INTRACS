@@ -1,0 +1,14 @@
+name: intracs_datasources
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: ">=2.14.0 <3.0.0"
+
+dependencies:
+  intracs_gateways:
+    path: ../../adapter/gateways
+  intracs_application:
+    path: ../../inner/application
+  intracs_entities:
+    path: ../../inner/entities

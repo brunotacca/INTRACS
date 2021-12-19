@@ -1,0 +1,56 @@
+{
+  "configVersion": 2,
+  "packages": [
+    {
+      "name": "intracs_application",
+      "rootUri": "../../../inner/application",
+      "packageUri": "lib/",
+      "languageVersion": "2.14"
+    },
+    {
+      "name": "intracs_controllers",
+      "rootUri": "../../../adapter/controllers",
+      "packageUri": "lib/",
+      "languageVersion": "2.14"
+    },
+    {
+      "name": "intracs_datasources",
+      "rootUri": "../../datasources",
+      "packageUri": "lib/",
+      "languageVersion": "2.14"
+    },
+    {
+      "name": "intracs_devices",
+      "rootUri": "../../devices",
+      "packageUri": "lib/",
+      "languageVersion": "2.14"
+    },
+    {
+      "name": "intracs_entities",
+      "rootUri": "../../../inner/entities",
+      "packageUri": "lib/",
+      "languageVersion": "2.14"
+    },
+    {
+      "name": "intracs_gateways",
+      "rootUri": "../../../adapter/gateways",
+      "packageUri": "lib/",
+      "languageVersion": "2.14"
+    },
+    {
+      "name": "intracs_presenters",
+      "rootUri": "../../../adapter/presenters",
+      "packageUri": "lib/",
+      "languageVersion": "2.14"
+    },
+    {
+      "name": "intracs_visualization",
+      "rootUri": "../",
+      "packageUri": "lib/",
+      "languageVersion": "2.14"
+    }
+  ],
+  "generated": "2021-12-19T15:11:49.923561Z",
+  "generator": "pub",
+  "generatorVersion": "2.15.0-268.18.beta"
+}

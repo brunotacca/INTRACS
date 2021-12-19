@@ -9,7 +9,7 @@ version: 0.0.0-WIP
 date-released: 2022-01-01
 url: "https://github.com/brunotacca/INTRACS"
 preferred-citation:
-  type: article
+  type: misc
   authors:
   - family-names: "Vitorelli Tacca Oliveira"
     given-names: "Bruno"
