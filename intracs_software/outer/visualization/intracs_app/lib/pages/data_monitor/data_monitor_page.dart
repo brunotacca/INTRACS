@@ -39,8 +39,8 @@ class DataMonitorPage extends GetView<DataMonitorController> {
                       children: [
                         new TabBar(
                           tabs: [
-                            new Tab(text: "Computed"),
                             new Tab(text: "Raw"),
+                            new Tab(text: "Computed"),
                           ],
                         ),
                       ],
@@ -77,8 +77,6 @@ class DataMonitorPage extends GetView<DataMonitorController> {
                     await controller.stopDataGathering();
                   },
                 ),
-                Text(
-                    "Commands Buttons Bar \n Scroll horizontally \n simple buttons"),
               ],
             ),
           ),
@@ -93,18 +91,17 @@ class DataMonitorPage extends GetView<DataMonitorController> {
         children: [
           Obx(
             () {
-              if (controller.computedDataCounter.value > -1) {
+              if (controller.dataCounter.value > -1) {
                 return Column(
                   children: [
                     Text(
-                      controller.computedDataCounter.value.toString() +
+                      controller.dataCounter.value.toString() +
                           " (" +
-                          controller.computedDataPerSecond.value
-                              .toStringAsFixed(2) +
+                          controller.dataPerSecond.value.toStringAsFixed(2) +
                           "/s)",
                       style: myTextBody,
                     ),
-                    controller.receivedComputedDataDisplay.getSensorTables(),
+                    controller.receivedRawDataDisplay.getSensorTables(),
                   ],
                 );
               }
@@ -122,17 +119,18 @@ class DataMonitorPage extends GetView<DataMonitorController> {
         children: [
           Obx(
             () {
-              if (controller.dataCounter.value > -1) {
+              if (controller.computedDataCounter.value > -1) {
                 return Column(
                   children: [
                     Text(
-                      controller.dataCounter.value.toString() +
+                      controller.computedDataCounter.value.toString() +
                           " (" +
-                          controller.dataPerSecond.value.toStringAsFixed(2) +
+                          controller.computedDataPerSecond.value
+                              .toStringAsFixed(2) +
                           "/s)",
                       style: myTextBody,
                     ),
-                    controller.receivedRawDataDisplay.getSensorTables(),
+                    controller.receivedComputedDataDisplay.getSensorTables(),
                   ],
                 );
               }
