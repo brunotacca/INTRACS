@@ -25,6 +25,16 @@ apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply from: "$flutterRoot/packages/flutter_tools/gradle/flutter.gradle"
 
+def flutterMinSdkVersion = localProperties.getProperty('flutter.minSdkVersion')
+if (flutterMinSdkVersion == null) {
+    flutterMinSdkVersion = flutter.minSdkVersion
+}
+
+def flutterTargetSdkVersion = localProperties.getProperty('flutter.minSdkVersion')
+if (flutterTargetSdkVersion == null) {
+    flutterTargetSdkVersion = flutter.targetSdkVersion
+}
+
 android {
     compileSdkVersion flutter.compileSdkVersion
 
@@ -40,12 +50,14 @@ android {
     sourceSets {
         main.java.srcDirs += 'src/main/kotlin'
     }
+    
+    print flutter.minSdkVersion
 
     defaultConfig {
         // TODO: Specify your own unique Application ID (https://developer.android.com/studio/build/application-id.html).
         applicationId "com.example.intracs_app"
-        minSdkVersion 21
-        targetSdkVersion 30
+        minSdkVersion flutter.minSdkVersion
+        targetSdkVersion flutter.targetSdkVersion
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName
     }
