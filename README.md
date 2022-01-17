@@ -31,3 +31,12 @@ The images above shows the collected raw data from two 9 axis sensors being show
 </p>
 
 The image above shows the inertial device that was assembled using TinyCircuits boards with the wirelings platform. There are one processor board, one Bluetooth 4.1 board, one wireling adapter board with 4 channels, two wireling 9 axis IMU, cables and a 150mAh battery.
+
+## Possible applications
+
+Due to it's small size and portability, one could use this to develop smart vests to capture and proccess inertial data related to human kinematics, like elbow or knee movements, gait analysis, etc.
+
+<p align="center">
+<img src=".imgs_doc/elbow-knee-prototypes.png" height="250px">
+</p>
+
