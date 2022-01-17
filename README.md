@@ -1,6 +1,6 @@
-<center>
+<p align="center">
 <img src=".imgs_doc/logo-git.png">
-</center>
+</p>
 
 **INTRACS** - **In**ertial **Tra**cker **Com**puting **S**ystem
 
@@ -18,16 +18,16 @@ As of now, the provided app is capable of gathering and computing raw data comin
 
 ## The application
 
-<center>
+<p align="center">
 <img src=".imgs_doc/app-datamonitorpage-rawdata-on.jpeg" height="400px"> <img src=".imgs_doc/app-datamonitorpage-computeddata-on.jpeg" height="400px">
-</center>
+</p>
 
 The images above shows the collected raw data from two 9 axis sensors being shown on the screen as long as the computed data, the computing method applied is a sensor fusion called RTQF, a simplified version of Kalman Filter using quaternions, from RTIMU library (richards-tech).
 
 ## The inertial device
 
-<center>
+<p align="center">
 <img src=".imgs_doc/intracs-inertial-device.png" height="350px">
-</center>
+</p>
 
 The image above shows the inertial device that was assembled using TinyCircuits boards with the wirelings platform. There are one processor board, one Bluetooth 4.1 board, one wireling adapter board with 4 channels, two wireling 9 axis IMU, cables and a 150mAh battery.
