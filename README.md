@@ -1,5 +1,5 @@
 <p align="center">
-<img src=".imgs_doc/logo-git.png">
+<img src=".github/imgs_doc/logo-git.png">
 </p>
 
 **INTRACS** - **In**ertial **Tra**cker **Com**puting **S**ystem
@@ -19,7 +19,7 @@ As of now, the provided app is capable of gathering and computing raw data comin
 ## The application
 
 <p align="center">
-<img src=".imgs_doc/app-datamonitorpage-rawdata-on.jpeg" height="400px"> <img src=".imgs_doc/app-datamonitorpage-computeddata-on.jpeg" height="400px">
+<img src=".github/imgs_doc/app-datamonitorpage-rawdata-on.jpeg" height="400px"> <img src=".github/imgs_doc/app-datamonitorpage-computeddata-on.jpeg" height="400px">
 </p>
 
 The images above shows the collected raw data from two 9 axis sensors being shown on the screen as long as the computed data, the computing method applied is a sensor fusion called RTQF, a simplified version of Kalman Filter using quaternions, from RTIMU library (richards-tech).
@@ -27,7 +27,7 @@ The images above shows the collected raw data from two 9 axis sensors being show
 ## The inertial device
 
 <p align="center">
-<img src=".imgs_doc/intracs-inertial-device.png" height="350px">
+<img src=".github/imgs_doc/intracs-inertial-device.png" height="350px">
 </p>
 
 The image above shows the inertial device that was assembled using TinyCircuits boards with the wirelings platform. There are one processor board, one Bluetooth 4.1 board, one wireling adapter board with 4 channels, two wireling 9 axis IMU, cables and a 150mAh battery.
@@ -37,6 +37,6 @@ The image above shows the inertial device that was assembled using TinyCircuits 
 Due to it's small size and portability, one could use this to develop smart vests to capture and proccess inertial data related to human kinematics, like elbow or knee movements, gait analysis, etc.
 
 <p align="center">
-<img src=".imgs_doc/elbow-knee-prototypes.png" height="250px">
+<img src=".github/imgs_doc/elbow-knee-prototypes.png" height="250px">
 </p>
 
