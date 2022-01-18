@@ -45,15 +45,19 @@ Scan through our [existing issues](https://github.com/brunotacca/INTRACS/issues)
 
 #### Making changes in the mobile application
 
--TODO
+To make changes in the mobile application you must find or create a new issue related to a bug or new feature. The mobile application is built mostly over Dart language and it's primordial to understand this project structure, you can read the [Project Architecture](PROJECT_ARCHITECTURE.md) document to get this going.
+
+If you want to change just the UI, you don't need a deep understanding of the architecture, but you will be limited to it's actual inputs and outputs. If you want to improve the project architecture itself, you're welcome to suggest it as a feature request and make sure to make it the best way you can.
 
 #### Making changes in the inertial device software
 
--TODO
+The inertial device software is meant to just send inertial data through bluetooth with a simple 20 bytes (ble 4.1) format. It's nothing more than that. It has a lot of room for code improvements, documentation and readability. 
+
+You can also make your own inertial device and integrate with the application, if you want to add it to this public repository, we would love to add it along with our already built device, the more options the better. Make sure to write a detailed step by step acquisition and assemble guide to it.
 
 #### Adding or Making changes in computing methods
 
--TODO
+You can choose to just contribute with a computing method to be listed in the application and try it out with the raw inertial data. You won't need deep understanding of the project architecture and just need to follow the [Computing Methods](COMPUTING_METHODS.md) guide to do it.
 
 ### 3. Commit your update
 
@@ -74,5 +78,7 @@ Once you submit your PR, a team member will review your proposal. We may ask que
 
 ### 5. Your PR is merged!
 
-Congratulations :tada::tada: The INTRACS project team thanks you :sparkles:. 
+Congratulations :tada::tada: 
+
+The INTRACS project team thanks you :sparkles:. Welcome aboard.
 
