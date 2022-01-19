@@ -16,9 +16,13 @@ The arrows between the layers represents dependency, and dependency means that o
 <img src="imgs/fig26-intracs-arquitetura-camadas-linear.png" height="250px">
 </p>
 
-In the image above, you can see a different layout of the architecture, the solid black dots represents concrete classes and the white dots represents abstract classes. Both of the arrows represents dependency, the black one you can read as *"use"* and the white one you can read as *"implements"*.
+In the image above, you can see a different layout of the architecture, the solid black dots represents concrete classes and the white dots represents abstract classes. Both of the arrows represents dependency, the black one you can read as *"use"* and the white one you can read as *"implements"*. One of the major benefits of this architecture style is having your inner layers blind of *frameworks* and external technologies, the image below shows the amount of dependencies in each layer.
 
-As you can see there are many *dots* inside each different layer in order to preserve the dependency rule, each of those dots represents a component inside the given layer. There are many different components, lets start from inside out.
+<p align="center">
+<img src="imgs/fig22-frameworks-dependencias-por-camada-eng.png" height="250px">
+</p>
+
+As you can see there are many *dots* inside each different layer in order to preserve the dependency rule, each of those dots represents a component inside the given layer. There are many different components, lets start from inside out
 
 # INTRACS - Inner Layers
 
@@ -34,7 +38,11 @@ The input port of the use case is defined by his abstract class with an InputDTO
 
 As you can see, many of the responsibilities of a *"use case"* was taken away and given to the next layers. Things like fetching data from databases, showing information on the screen and managing the input parameter correctly doesn't exists here, the use case can produce errors/exceptions based on the input of course, but that belongs to the application rules it was designed for.
 
-Since all those responsibilites are given to outer components through dependency inversion, the next set of layers, called Adapters, must have components that implements those abstractions to follow its the definitions.
+<p align="center">
+<img src="imgs/fig35-modelagem-camada-application-8-casos-de-uso.png" height="450px">
+</p>
+
+The image above shows how the neighbor layers interact with the application layer. Since all those responsibilites are given to outer components through dependency inversion, the next set of layers, called Adapters, must have components that implements those abstractions to follow its the definitions.
 
 # INTRACS - Adapter Layers
 
