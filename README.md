@@ -40,3 +40,6 @@ Due to its small size and portability, one could use this to develop smart vests
 <img src="docs/imgs/elbow-knee-prototypes.png" height="250px">
 </p>
 
+<p align="right">
+<img src="https://badges.pufler.dev/visits/brunotacca/INTRACS?color=black&logo=github" />
+</p>
