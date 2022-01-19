@@ -1,6 +1,6 @@
 # Computing Methods
 
-The INTRACS project offers the possibility to process raw inertial data through custom algorithms called computing methods. The computing methods were configured in a way that it will be listed in the application as long as its class follow the pattern and steps detailed in this guide.
+The INTRACS project offers the possibility to process raw inertial data through custom algorithms called computing methods. The computing methods were configured in a way that they will be listed in the application as long as its class follows the pattern and steps detailed in this guide.
 
 First, the computing methods are located at the `outer layer - datasources` of this project architecture. You can find them in the `local/static/methods` fold, as shown in the folder structure below:
 
@@ -22,9 +22,9 @@ First, the computing methods are located at the `outer layer - datasources` of t
         └── visualization
 ```
 
-Taking that into consideration, any computing method contribution must have changes only inside this folder. Outside that, is considered an application contribution and will be treated differently.
+Taking that into consideration, any computing method contribution must have code changes only inside this folder. Outside that is considered an application contribution and will be treated differently.
 
-To start coding your computing method, you must follow the class pattern of a computing method in order to get it to received the raw data properly and output the computed data properly to the app screen.
+To start coding your computing method, you must follow the class pattern of a computing method in order to get it to receive the raw data properly and output the computed data properly to the app screen.
 
 First, create a class with your computing method name as follows:
 
@@ -44,9 +44,9 @@ class MyComputingMethod extends ComputingMethodWithEngine {
 }
 ```
 
-The first line declares a final variable that will be used as reference to call your method, it must exist for the method to be added into the methods list afterwards.
+The first line declares a final variable that will be used as a reference to call your method, it must exist for the method to be added into the methods list afterward.
 
-The created class must extend `ComputingMethodWithEngine` since it's the Strategy pattern that will add all the functionality needed to your method. The attribute `method` is a description of your method, these informations will be shown into the app screen, you can summarize what it does and use like so:
+The created class must extend `ComputingMethodWithEngine` since it's the Strategy pattern that will add all the functionality needed to your method. The attribute `method` is a description of your method, this information will be shown on the app screen, you can summarize what it does and use like so:
 
 ```dart
   @override
@@ -62,9 +62,9 @@ The created class must extend `ComputingMethodWithEngine` since it's the Strateg
       );
 ```
 
-The method `compute(RawData rawData)` is the method that will be called as the raw data is being received, this method is your custom algorithm, be aware that this method will be called everytime as new rawData is being collected, however, it will wait for a call to return the ComputedData to be called again, the raw data collected is kept in a temporary queue and is fed to your method as needed. The return must be a `ComputedData` object, and you can find more about its details reading the class itself, here [ComputedData](https://github.com/brunotacca/INTRACS/blob/main/intracs_software/inner/entities/lib/src/entities/computed_data.dart)
+The method `compute(RawData rawData)` is the method that will be called as the raw data is being received, this method is your custom algorithm, be aware that this method will be called every time new rawData is being collected, however, it will wait for a call to return the ComputedData to be called again, the raw data collected is kept in a temporary queue and is fed to your method as needed. The return must be a `ComputedData` object, and you can find more about its details reading the class itself, here [ComputedData](https://github.com/brunotacca/INTRACS/blob/main/intracs_software/inner/entities/lib/src/entities/computed_data.dart)
 
-In your method class you have freedom to code as you like, you can declare private attributes, other classes, methods, etc. The only two things used by the system are the overrided attribute and method. Here is an example to add +1 to the X value from the accelerometer:
+In your method class, you have the freedom to code as you like, you can declare private attributes, other classes, methods, etc. The only two things used by the architecture are the overridden attribute and method. Here is an example to add +1 to the X value from the accelerometer:
 
 ```dart
   final double myNumberAddition = 1.0;
@@ -100,4 +100,4 @@ class ComputingMethodsStaticList {
 
 ```
 
-And that's it, your computing method is good to go, start up the application and the inertial device, your method should appear in the method selection page and processed inertial data should appear in the screen.
+And that's it, your computing method is good to go, start up the application and the inertial device, your method should appear on the method selection page and processed inertial data should appear on the screen.
