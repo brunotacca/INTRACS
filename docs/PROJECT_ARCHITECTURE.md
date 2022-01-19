@@ -98,5 +98,5 @@ This project is built using TinyCircuits boards and it's really simple to buy an
 In order to send the data through Bluetooth, the data must be converted to a data package (payload) of 20 bytes, this is a limitation of the technology (BLE 4.1) and can be replaced in the future. The image below shows how the software collects and sends the data.
 
 <p align="center">
-<img src="imgs/fig51-intracs-inertial-device-software-data-convertion-transmission.png" height="400px">
+<img src="imgs/fig51-intracs-inertial-device-software-data-convertion-transmission-english.png" height="400px">
 </p>
