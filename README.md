@@ -10,11 +10,11 @@ As of now, the provided app is capable of gathering and computing raw data comin
 
 ## Documentation
 
-* [Setup and Configuration](GET_STARTED.md)
-* [Project Architecture](PROJECT_ARCHITECTURE.md)
-* [Contributing to INTRACS](CONTRIBUTING.md)
-* [Getting help](SUPPORT.md)
-* [Be nice to everyone](CODE_OF_CONDUCT.md)
+* [Setup and Configuration](docs/GET_STARTED.md)
+* [Project Architecture](docs/PROJECT_ARCHITECTURE.md)
+* [Contributing to INTRACS](docs/CONTRIBUTING.md)
+* [Getting help](docs/SUPPORT.md)
+* [Be nice to everyone](docs/CODE_OF_CONDUCT.md)
 
 ## The application
 
