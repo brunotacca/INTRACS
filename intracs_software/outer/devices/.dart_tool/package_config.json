@@ -33,7 +33,7 @@
     },
     {
       "name": "flutter_blue",
-      "rootUri": "file:///home/tacca/tools/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_blue-0.8.0",
+      "rootUri": "file:///home/tacca/tools/flutter/.pub-cache/git/flutter_blue-a7fa5410b66cabdc3f12e7d74375db3477a70c85/",
       "packageUri": "lib/",
       "languageVersion": "2.12"
     },
@@ -69,7 +69,7 @@
     },
     {
       "name": "rxdart",
-      "rootUri": "file:///home/tacca/tools/flutter/.pub-cache/hosted/pub.dartlang.org/rxdart-0.26.0",
+      "rootUri": "file:///home/tacca/tools/flutter/.pub-cache/hosted/pub.dartlang.org/rxdart-0.27.3",
       "packageUri": "lib/",
       "languageVersion": "2.12"
     },
@@ -98,7 +98,7 @@
       "languageVersion": "2.14"
     }
   ],
-  "generated": "2021-12-19T16:04:19.629266Z",
+  "generated": "2022-02-23T14:53:04.454944Z",
   "generator": "pub",
-  "generatorVersion": "2.15.0-268.18.beta"
+  "generatorVersion": "2.15.1"
 }

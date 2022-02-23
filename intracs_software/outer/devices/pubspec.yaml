@@ -8,7 +8,11 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  flutter_blue: ^0.8.0
+  flutter_blue:
+    git:
+      url: https://github.com/boskokg/flutter_blue/
+      ref: 0.13.0
+
 
   intracs_gateways:
     path: ../../adapter/gateways

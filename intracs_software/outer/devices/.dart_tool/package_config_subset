@@ -14,6 +14,10 @@ intracs_devices
 2.14
 file:///home/tacca/Development/github/INTRACS/intracs_software/outer/devices/
 file:///home/tacca/Development/github/INTRACS/intracs_software/outer/devices/lib/
+flutter_blue
+2.12
+file:///home/tacca/tools/flutter/.pub-cache/git/flutter_blue-a7fa5410b66cabdc3f12e7d74375db3477a70c85/
+file:///home/tacca/tools/flutter/.pub-cache/git/flutter_blue-a7fa5410b66cabdc3f12e7d74375db3477a70c85/lib/
 characters
 2.12
 file:///home/tacca/tools/flutter/.pub-cache/hosted/pub.dartlang.org/characters-1.2.0/
@@ -30,10 +34,6 @@ fixnum
 2.12
 file:///home/tacca/tools/flutter/.pub-cache/hosted/pub.dartlang.org/fixnum-1.0.0/
 file:///home/tacca/tools/flutter/.pub-cache/hosted/pub.dartlang.org/fixnum-1.0.0/lib/
-flutter_blue
-2.12
-file:///home/tacca/tools/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_blue-0.8.0/
-file:///home/tacca/tools/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_blue-0.8.0/lib/
 meta
 2.12
 file:///home/tacca/tools/flutter/.pub-cache/hosted/pub.dartlang.org/meta-1.7.0/
@@ -44,8 +44,8 @@ file:///home/tacca/tools/flutter/.pub-cache/hosted/pub.dartlang.org/protobuf-2.0
 file:///home/tacca/tools/flutter/.pub-cache/hosted/pub.dartlang.org/protobuf-2.0.1/lib/
 rxdart
 2.12
-file:///home/tacca/tools/flutter/.pub-cache/hosted/pub.dartlang.org/rxdart-0.26.0/
-file:///home/tacca/tools/flutter/.pub-cache/hosted/pub.dartlang.org/rxdart-0.26.0/lib/
+file:///home/tacca/tools/flutter/.pub-cache/hosted/pub.dartlang.org/rxdart-0.27.3/
+file:///home/tacca/tools/flutter/.pub-cache/hosted/pub.dartlang.org/rxdart-0.27.3/lib/
 typed_data
 2.12
 file:///home/tacca/tools/flutter/.pub-cache/hosted/pub.dartlang.org/typed_data-1.3.0/
